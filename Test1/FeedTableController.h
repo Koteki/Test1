@@ -15,10 +15,10 @@
 {
     NSMutableArray* posts;
     DetailViewController *detailViewController;
-    NSInteger choosedPost;
+ 
 }
 
 @property (nonatomic, retain) NSMutableArray* posts;
 @property (nonatomic, retain) DetailViewController *detailViewController;
-@property (nonatomic, assign) NSInteger choosedPost;
+
 @end

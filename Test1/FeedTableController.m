@@ -12,7 +12,7 @@
 
 @implementation FeedTableController
 
-@synthesize posts, detailViewController, choosedPost;
+@synthesize posts, detailViewController;
 
 -(id) initWithStyle:(UITableViewStyle)style
 {
@@ -57,22 +57,24 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    NSInteger n = indexPath.row;
-
+    
+    if (cell == nil) {
+        
        cell =[[PostTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:@"Cell"
                                                  post:[self.posts objectAtIndex:indexPath.row]
                                                height:HEIGHTOFPOST];
- 
+    }
+    else [cell setPicturesForPost:[self.posts objectAtIndex:indexPath.row]];
   
     cell.likePressDelegate = self;
     return cell;
 }
 
--(void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
    
-    choosedPost = indexPath.row;
+    
     DetailViewController *detailController = [[DetailViewController alloc] initWithPost:[self.posts objectAtIndex:indexPath.row]];
     [detailController setDelegateForPostView:self];
     self.detailViewController = detailController;
@@ -97,9 +99,9 @@
 -(void) buttonLikePressed
 {
   //was pressed like button in detail view of post
-    Post* post = [posts objectAtIndex:choosedPost];
+    Post* post = [posts objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     [post likeAction];
-    [posts replaceObjectAtIndex:choosedPost withObject:post];
+    [posts replaceObjectAtIndex:[self.tableView indexPathForSelectedRow].row withObject:post];
     [self.detailViewController setPost:post];
 }
 @end

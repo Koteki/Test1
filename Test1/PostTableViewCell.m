@@ -44,6 +44,7 @@
     [postPicture setCenter:CGPointMake(self.contentView.bounds.size.width/2, self.contentView.bounds.size.height/2+28)];
     
     
+    
     [self addSubview:postPicture];
     [self addSubview:likeButton];
  
@@ -65,7 +66,8 @@
     UIImage *img = [UIImage imageWithContentsOfFile:path];
     self.likePic = img;
     [likeButton setImage:[self scaleImage:self.likePic toSize:likeButton.frame.size]
-            forState:UIControlStateNormal];
+                forState:UIControlStateNormal];
+
 }
 
 -(UIImage*)scaleImage:(UIImage*)img toSize:(CGSize)sizeWeNeed
@@ -79,5 +81,12 @@
     UIGraphicsEndImageContext();
     return tmpImg;
     
+}
+
+-(void) setPicturesForPost:(Post*)post
+{
+    [self.postPicture setImage:post.img];
+    [self setLikeButtonImageForPost:post];
+
 }
 @end

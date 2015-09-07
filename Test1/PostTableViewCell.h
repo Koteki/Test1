@@ -37,4 +37,5 @@
 - (void) buttonLikePressed;
 -(UIImage*)scaleImage:(UIImage*)img toSize:(CGSize) sizeWeNeed;
 -(void) setLikeButtonImageForPost:(Post*) post;
+-(void) setPicturesForPost:(Post*)post;
 @end
