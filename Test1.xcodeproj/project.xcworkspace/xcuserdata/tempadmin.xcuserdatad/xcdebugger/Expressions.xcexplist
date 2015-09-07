@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[DetailViewController initWithPost:]:DetailViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[PostTableViewCell initWithStyle:reuseIdentifier:post:height:]:PostTableViewCell.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailPostView initWithPost:]:DetailPostView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[FeedTableController tableView:didDeselectRowAtIndexPath:]:FeedTableController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "posts">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
